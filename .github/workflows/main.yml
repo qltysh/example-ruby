@@ -34,9 +34,9 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: Run the default task
-        run: bundle exec rspec
+        run: bundle exec rspec --require spec_helper
 
       - uses: qltyai/qlty-action/coverage@main
         with:
           coverage-token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
-          file: coverage/.resultset.json
+          file: coverage/coverage.json
