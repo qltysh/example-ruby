@@ -28,6 +28,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      - name: git
+        run: |
+          git --version
+          echo $GITHUB_SHA
+          git show $GITHUB_SHA
+
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
