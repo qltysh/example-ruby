@@ -8,7 +8,6 @@ This repository uses [Rspec](https://rspec.info/) for testing and [simplecov](ht
 
 ## Requirements
 
-- Ruby 2.7 or above
 - Test run with [bundle exec rspec](https://rspec.info/)
 - An account on Qlty (free for open source)
 - `QLTY_COVERAGE_TOKEN` is set as a GitHub Actions [repository secret](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository)
@@ -29,3 +28,7 @@ Join the our [Slack Community](https://example.com) for help and to provide feed
 ## License
 
 [MIT License](./LICENSE.md)
+
+## Support
+
+You can can contact us at https://qlty.ai/support
