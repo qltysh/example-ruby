@@ -44,6 +44,10 @@ jobs:
       - name: Run the default task
         run: bundle exec rspec --require spec_helper
 
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
       - uses: qltyai/qlty-action/coverage@main
         with:
           coverage-token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
