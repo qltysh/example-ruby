@@ -27,12 +27,14 @@ jobs:
 
       - name: Checkout repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
 
-      - name: git
-        run: |
-          git --version
-          echo $GITHUB_SHA
-          git show $GITHUB_SHA
+      # - name: git
+      #   run: |
+      #     git --version
+      #     echo $GITHUB_SHA
+      #     git show $GITHUB_SHA
 
 
       - name: Set up Ruby
@@ -43,10 +45,6 @@ jobs:
 
       - name: Run the default task
         run: bundle exec rspec --require spec_helper
-
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
 
       - uses: qltyai/qlty-action/coverage@main
         with:
