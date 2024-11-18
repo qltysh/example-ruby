@@ -37,7 +37,7 @@ jobs:
       - name: Run the default task
         run: bundle exec rspec --require spec_helper
 
-      - uses: qltyai/qlty-action/coverage@main
+      - uses: qltysh/qlty-action/coverage@main
         with:
           coverage-token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
-          file: coverage/coverage.json
+          files: coverage/coverage.json
