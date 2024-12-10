@@ -21,5 +21,15 @@ class Sample
       puts("5 - 3 = #{subtract(5, 3)}");
       puts("4 * 3 = #{multiply(4, 3)}");
     end
+
+    def pi
+      3.141
+    end
+
+    def fibonacci(n)
+      return n if n <= 1
+
+      fibonacci(n - 1) + fibonacci(n - 2)
+    end
   end
 end
