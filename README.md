@@ -19,8 +19,8 @@ See [`.github/workflows/main.yml`](./.github/workflows/main.yml) in this reposit
 
 ## Documentation
 
-- [Advanced code coverage configuration](https://example.com)
-- [Alternative supported CI providers](https://example.com)
+- [Advanced code coverage configuration](https://docs.qlty.sh/cloud/coverage/setup#advanced-configurations)
+- [Alternative supported CI providers](https://docs.qlty.sh/cloud/coverage/ci)
 
 ## Help and feedback
 
