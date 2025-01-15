@@ -1,6 +1,6 @@
 # Qlty Ruby Coverage Example
 
-[Qlty](https://example.com) is a Code Health Platform with support for code coverage.
+[Qlty](https://qlty.sh) is a Code Health Platform with support for code coverage.
 
 This repository is an example using Qlty to track code coverage for a Ruby project. Coverage data is generated during the [Rspec](https://rspec.info/) run and then uploaded to Qlty.
 
