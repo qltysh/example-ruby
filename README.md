@@ -24,7 +24,7 @@ See [`.github/workflows/main.yml`](./.github/workflows/main.yml) in this reposit
 
 ## Help and feedback
 
-Join the our [Slack Community](https://example.com) for help and to provide feedback that we'll use to improve Qlty.
+Join our [Discord](https://qlty.sh/discord) for help and feedback.
 
 ## License
 
