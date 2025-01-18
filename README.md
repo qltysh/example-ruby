@@ -19,6 +19,7 @@ See [`.github/workflows/main.yml`](./.github/workflows/main.yml) in this reposit
 
 ## Documentation
 
+- [Ruby Test Coverage Setup](https://docs.qlty.sh/languages/ruby#test-coverage-setup)
 - [Advanced code coverage configuration](https://docs.qlty.sh/cloud/coverage/setup#advanced-configurations)
 - [Alternative supported CI providers](https://docs.qlty.sh/cloud/coverage/ci)
 
