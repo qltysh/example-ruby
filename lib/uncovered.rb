@@ -1,0 +1,2 @@
+class Uncovered
+end
