@@ -18,6 +18,10 @@ class Sample
       a**b
     end
 
+    def foobar(z)
+      puts "hi"
+    end
+
     def main()
       puts("Hello, world!");
 
