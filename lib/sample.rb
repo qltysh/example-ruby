@@ -14,6 +14,14 @@ class Sample
       a * b
     end
 
+    def divide(a, b)
+      if b.zero?
+        raise ZeroDivisionError, "Division by zero is not allowed."
+      else
+        a / b
+      end
+    end
+
     def main()
       puts("Hello, world!");
 
