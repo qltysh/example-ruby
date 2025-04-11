@@ -25,6 +25,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Generate GitHub OIDC Token
+        uses: actions/github-script@v6
+        id: get-id-token
+        with:
+          script: |
+              const id_token = await core.getIDToken("https://qlty.sh");
+              core.setOutput('oidc_token', id_token);
+      
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -36,5 +44,5 @@ jobs:
 
       - uses: qltysh/qlty-action/coverage@main
         with:
-          coverage-token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+            coverage-token: ${{ steps.get-id-token.outputs.id_token }}
           files: coverage/coverage.json
