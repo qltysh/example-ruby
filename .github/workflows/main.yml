@@ -31,7 +31,7 @@ jobs:
         with:
           script: |
               const id_token = await core.getIDToken("https://qlty.sh");
-              core.setOutput('oidc_token', id_token);
+              core.setOutput('id_token', id_token);
       
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
