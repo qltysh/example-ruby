@@ -35,7 +35,7 @@ jobs:
       - name: Run the default task
         run: bundle exec rspec --require spec_helper
 
-      - uses: qltysh/qlty-action/coverage@bh-oidc
+      - uses: qltysh/qlty-action/coverage@main
         with:
           oidc: true
           files: coverage/coverage.json
