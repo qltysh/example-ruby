@@ -22,6 +22,10 @@ class Sample
       end
     end
 
+    def foo
+      puts "foo"
+    end
+
     def main()
       puts("Hello, world!");
 
