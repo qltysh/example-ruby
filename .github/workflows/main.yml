@@ -38,5 +38,5 @@ jobs:
       - uses: qltysh/qlty-action/coverage@bh-cli-version
         with:
           oidc: true
-          cli-version: 1.0.0
+          cli-version: 0.507.0
           files: coverage/coverage.json
