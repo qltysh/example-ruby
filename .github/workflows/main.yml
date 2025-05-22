@@ -11,12 +11,13 @@ on:
 permissions:
   actions: write
   contents: read
-  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     name: Ruby ${{ matrix.ruby }}
+    permissions:
+      id-token: write
     strategy:
       matrix:
         ruby:
