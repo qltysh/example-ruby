@@ -31,18 +31,17 @@ jobs:
 
       - name: Run tests in Docker (detached)
         run: |
-          docker run -d --name ruby-test-container \
+          docker run -d \
+            --name ruby-test-container \
             -w /app \
-            -v "$(pwd)":/app \
             ruby-test \
-            bundle exec rspec --require spec_helper
-
-          # Wait for container to finish
-          docker wait ruby-test-container
+            bash -c "bundle exec rspec --require spec_helper && sleep 1"
 
       - name: Copy coverage.json out of container
         run: |
-          docker cp ruby-test-container:/app/coverage/coverage.json coverage/coverage.json
+          mkdir -p tmp_coverage
+          docker cp ruby-test-container:/app/coverage/coverage.json tmp_coverage/coverage.json
+          mv tmp_coverage/coverage.json coverage/coverage.json
 
       - name: Cleanup container
         run: docker rm ruby-test-container
