@@ -29,13 +29,23 @@ jobs:
         run: |
           docker build -t ruby-test -f Dockerfile .
 
-      - name: Run tests in Docker
+      - name: Run tests in Docker (detached)
         run: |
-          docker run --rm \
-            -v "$(pwd)":/app \
+          docker run -d --name ruby-test-container \
             -w /app \
+            -v "$(pwd)":/app \
             ruby-test \
             bundle exec rspec --require spec_helper
+
+          # Wait for container to finish
+          docker wait ruby-test-container
+
+      - name: Copy coverage.json out of container
+        run: |
+          docker cp ruby-test-container:/app/coverage/coverage.json coverage/coverage.json
+
+      - name: Cleanup container
+        run: docker rm ruby-test-container
 
       - name: Check coverage file exists
         run: test -f coverage/coverage.json
