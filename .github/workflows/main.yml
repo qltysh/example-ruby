@@ -16,24 +16,29 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Ruby ${{ matrix.ruby }}
-    strategy:
-      matrix:
-        ruby:
-          - "3.1"
+    name: Ruby in Docker
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
-          bundler-cache: true
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-      - name: Run the default task
-        run: bundle exec rspec --require spec_helper
+      - name: Build Docker image
+        run: |
+          docker build -t ruby-test -f Dockerfile .
+
+      - name: Run tests in Docker
+        run: |
+          docker run --rm \
+            -v "$(pwd)":/app \
+            -w /app \
+            ruby-test \
+            bundle exec rspec --require spec_helper
+
+      - name: Check coverage file exists
+        run: test -f coverage/coverage.json
 
       - uses: qltysh/qlty-action/coverage@v1
         with:
