@@ -33,7 +33,6 @@ jobs:
         run: |
           docker run --name ruby-test-container \
             -w /app \
-            -v "$PWD":/app \
             ruby-test \
             bundle exec rspec --require spec_helper
 
