@@ -39,17 +39,15 @@ jobs:
 
       - name: Copy coverage.json out of container
         run: |
-          mkdir -p tmp_coverage
-          docker cp ruby-test-container:/app/coverage/coverage.json tmp_coverage/coverage.json
-          mv tmp_coverage/coverage.json coverage/coverage.json
+          docker cp ruby-test-container:/app/coverage/coverage.json coverage.json
 
       - name: Cleanup container
         run: docker rm ruby-test-container
 
       - name: Check coverage file exists
-        run: test -f coverage/coverage.json
+        run: test -f coverage.json
 
       - uses: qltysh/qlty-action/coverage@v1
         with:
           oidc: true
-          files: coverage/coverage.json
+          files: coverage.json
